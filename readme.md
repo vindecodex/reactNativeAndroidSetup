@@ -33,3 +33,9 @@ Just follow instruction on the link above on how to setup Android Studio and its
 - open android studio and open its emulator
 - run ```bash npm start```
 - open a new tab of terminal and ```bash npm run android```
+
+## Enable Live/Hot Reload on emulator
+- command + m for android
+- command + d for ios
+
+for windows alternate for command is ctrl

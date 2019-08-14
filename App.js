@@ -27,7 +27,7 @@ import {
 const App = () => {
   return (
     <View style={ styles.container }>
-      <Text style={ styles.text }>VINDECODE</Text>
+      <Text style={ styles.text }>vincent</Text>
     </View>
   );
 };
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
+    fontSize: 30,
   },
   });
 
