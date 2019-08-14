@@ -6,43 +6,88 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, { Component } from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  TextInput,
+  Button,
+  Image,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+class App extends Component {
+  state = {
+    username: "",
+    password: "",
+  };
 
-const App = () => {
-  return (
+  usernameChangeHandler = val => {
+    this.setState({
+      username: val
+    });
+  }
+  passwordChangeHandler = val => {
+    this.setState({
+      password: val
+    });
+  }
+  loginPressHandler = () => {
+    alert('username: ' + this.state.username + '\n' + 'password: ' + this.state.password)
+  }
+  render() {
+    return(
     <View style={ styles.container }>
-      <Text style={ styles.text }>vincent</Text>
+      <Image
+        source={{ uri: 'https://logo.clearbit.com/reactiongaming.us' }}
+        style={ styles.loginImage }
+      />
+      <Text style={ styles.loginText }>VINDECODEX</Text>
+      <TextInput
+        style={ styles.loginInput }
+        value = {this.state.username}
+        onChangeText = {this.usernameChangeHandler}
+        placeholder="Username"
+      />
+        <TextInput
+          style={ styles.loginInput }
+          secureTextEntry={true}
+          onChangeText = {this.passwordChangeHandler}
+          placeholder="Password"
+        />
+          <Button
+            title="Login"
+            type="outline"
+            onPress={ this.loginPressHandler }
+        />
     </View>
-  );
+      );
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
-    color: '#fff',
-    fontSize: 30,
+  loginText: {
+    fontSize: 40,
+    fontFamily: "sans-serif",
+    fontWeight: "bold",
   },
+  loginInput: {
+    width: 300,
+    borderColor: "#000",
+    borderRadius: 5,
+    borderWidth: 1,
+    margin: 5,
+    padding: 10,
+  },
+  loginImage: {
+    width: 150,
+    height: 150,
+  }
   });
 
 export default App;
